@@ -1,0 +1,23 @@
+# Data (download from Kaggle — do not commit large files)
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+*.xls
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Power BI local caches (optional)
+*.pbix.bak
