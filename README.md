@@ -135,6 +135,16 @@ AVERAGE('order_master'[delivery_delay_days])
 
 ---
 
+## Cleaning and database
+
+**Python cleaning** — category translation, delivery flags, and export checks  
+![Python cleaning](dashboard/07_python_cleaning.png)
+
+**MySQL** — cleaned tables loaded and validated  
+![MySQL tables](dashboard/06_mysql_tables.png)
+
+---
+
 ## Reproduce
 
 1. Download Kaggle CSVs → `data/raw/`  
