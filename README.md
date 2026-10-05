@@ -3,10 +3,8 @@
 End-to-end analysis of **99,441** Brazilian marketplace orders (2016–2018, BRL).  
 **Python (pandas) · MySQL · Power BI**
 
-<p align="center">
-
 <a href="https://favour-onyenike.github.io/PORTFOLIO/">
-  <img src="https://img.shields.io/badge/Website-0A66C2?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" />
+  <img src="https://img.shields.io/badge/Website-181717?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" />
 </a>
 &nbsp;
 <a href="https://www.linkedin.com/in/favour-onyenike">
@@ -16,8 +14,6 @@ End-to-end analysis of **99,441** Brazilian marketplace orders (2016–2018, BRL
 <a href="mailto:onyenikefavour8@gmail.com">
   <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
 </a>
-
-</p>
 
 ---
 
@@ -134,33 +130,23 @@ AVERAGE('order_master'[delivery_delay_days])
 
 **Overview** — KPIs, revenue trend, payment mix  
 
-<p align="center">
 <img src="dashboard/01_overview.png" width="720" alt="Overview" />
-</p>
 
 **Delivery** — late rate by state and delay patterns  
 
-<p align="center">
 <img src="dashboard/02_delivery.png" width="720" alt="Delivery" />
-</p>
 
 **Main insight** — longer delays line up with worse review scores (1 = worst, 5 = best)  
 
-<p align="center">
 <img src="dashboard/03_delay_by_review.png" width="520" alt="Delay by review score" />
-</p>
 
 **Sellers** — concentration and top performers  
 
-<p align="center">
 <img src="dashboard/04_sellers.png" width="720" alt="Sellers" />
-</p>
 
 **Data model** — tables and relationships in Power BI  
 
-<p align="center">
 <img src="dashboard/05_model.png" width="720" alt="Model" />
-</p>
 
 ---
 
@@ -168,15 +154,11 @@ AVERAGE('order_master'[delivery_delay_days])
 
 **Python cleaning** — category translation, delivery flags, and export checks  
 
-<p align="center">
 <img src="dashboard/07_python_cleaning.png" width="720" alt="Python cleaning" />
-</p>
 
 **MySQL** — cleaned tables loaded and validated  
 
-<p align="center">
 <img src="dashboard/06_mysql_tables.png" width="720" alt="MySQL tables" />
-</p>
 
 ---
 
@@ -202,14 +184,12 @@ AVERAGE('order_master'[delivery_delay_days])
 
 ## Contact
 
-<p align="center">
-
 <a href="https://www.linkedin.com/in/favour-onyenike">
   <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
 </a>
 &nbsp;
 <a href="https://favour-onyenike.github.io/PORTFOLIO/">
-  <img src="https://img.shields.io/badge/Website-0A66C2?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" />
+  <img src="https://img.shields.io/badge/Website-181717?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" />
 </a>
 &nbsp;
 <a href="mailto:onyenikefavour8@gmail.com">
@@ -219,5 +199,3 @@ AVERAGE('order_master'[delivery_delay_days])
 <a href="https://www.instagram.com/favour.ogo_/">
   <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
 </a>
-
-</p>
