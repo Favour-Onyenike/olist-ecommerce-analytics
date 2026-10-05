@@ -133,29 +133,50 @@ AVERAGE('order_master'[delivery_delay_days])
 ## Dashboard
 
 **Overview** — KPIs, revenue trend, payment mix  
-![Overview](dashboard/01_overview.png)
+
+<p align="center">
+<img src="dashboard/01_overview.png" width="720" alt="Overview" />
+</p>
 
 **Delivery** — late rate by state and delay patterns  
-![Delivery](dashboard/02_delivery.png)
+
+<p align="center">
+<img src="dashboard/02_delivery.png" width="720" alt="Delivery" />
+</p>
 
 **Main insight** — longer delays line up with worse review scores (1 = worst, 5 = best)  
-![Delay by review score](dashboard/03_delay_by_review.png)
+
+<p align="center">
+<img src="dashboard/03_delay_by_review.png" width="520" alt="Delay by review score" />
+</p>
 
 **Sellers** — concentration and top performers  
-![Sellers](dashboard/04_sellers.png)
+
+<p align="center">
+<img src="dashboard/04_sellers.png" width="720" alt="Sellers" />
+</p>
 
 **Data model** — tables and relationships in Power BI  
-![Model](dashboard/05_model.png)
+
+<p align="center">
+<img src="dashboard/05_model.png" width="720" alt="Model" />
+</p>
 
 ---
 
 ## Cleaning and database
 
 **Python cleaning** — category translation, delivery flags, and export checks  
-![Python cleaning](dashboard/07_python_cleaning.png)
+
+<p align="center">
+<img src="dashboard/07_python_cleaning.png" width="720" alt="Python cleaning" />
+</p>
 
 **MySQL** — cleaned tables loaded and validated  
-![MySQL tables](dashboard/06_mysql_tables.png)
+
+<p align="center">
+<img src="dashboard/06_mysql_tables.png" width="720" alt="MySQL tables" />
+</p>
 
 ---
 
