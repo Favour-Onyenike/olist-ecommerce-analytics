@@ -155,5 +155,24 @@ AVERAGE('order_master'[delivery_delay_days])
 
 ---
 
-**Favour Onyenike** · First-class B.Sc. Computer Science, Baze University  
-[Website](https://favour-onyenike.github.io/PORTFOLIO/) · [GitHub](https://github.com/Favour-Onyenike) · [LinkedIn](https://www.linkedin.com/in/favour-onyenike)
+## Contact
+
+<p align="center">
+
+<a href="https://www.linkedin.com/in/favour-onyenike">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+</a>
+&nbsp;
+<a href="https://favour-onyenike.github.io/PORTFOLIO/">
+  <img src="https://img.shields.io/badge/Website-0A66C2?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" />
+</a>
+&nbsp;
+<a href="mailto:onyenikefavour8@gmail.com">
+  <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+</a>
+&nbsp;
+<a href="https://www.instagram.com/favour.ogo_/">
+  <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+</a>
+
+</p>
