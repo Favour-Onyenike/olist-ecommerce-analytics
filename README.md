@@ -146,7 +146,12 @@ AVERAGE('order_master'[delivery_delay_days])
 
 ## Skills demonstrated
 
-Multi-table cleaning · Feature engineering · SQL schema and validation · DAX KPIs · Dashboard design · Evidence-based recommendations
+1. Multi-table data cleaning  
+2. Feature engineering  
+3. SQL schema design and validation  
+4. DAX KPI measures  
+5. Interactive dashboard design  
+6. Evidence-based business recommendations  
 
 ---
 
