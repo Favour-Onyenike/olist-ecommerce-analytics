@@ -42,8 +42,7 @@ Created typed tables with primary keys, imported the cleaned CSVs, and validated
 **3. Power BI**  
 Built relationships and a date column, wrote DAX KPIs, and designed three pages — Overview, Delivery, Sellers — with slicers and page navigation.
 
-**Data:** [Olist on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) · 9 CSVs · 27 states · ~71 English categories after translation  
-**Note:** `customer_unique_id` = the person; `customer_id` is assigned per order — retention uses unique id.
+**Data:** [Olist on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) · 9 CSVs · 27 states · 71 English categories after translation  
 
 ---
 
