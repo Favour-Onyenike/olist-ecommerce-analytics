@@ -49,12 +49,12 @@ Built relationships and a date column, wrote DAX KPIs, and designed three pages 
 
 ## Results
 
-- **Total revenue:** ~R$13.6M  
-- **Late delivery rate:** ~6.8%  
-- **Repeat customer rate:** ~3.1%  
-- **Average wait at review score 1 vs 5:** ~17 days vs ~10 days  
-- **Top seller vs average seller revenue:** ~R$459K vs ~R$8.8K  
-- **Top 10 sellers’ share of revenue:** ~13%  
+- **Total revenue:** R$13.6M  
+- **Late delivery rate:** 6.8%  
+- **Repeat customer rate:** 3.1%  
+- **Average wait at review score 1 vs 5:** 17 days vs 10 days  
+- **Top seller vs average seller revenue:** R$459K vs R$8.8K  
+- **Top 10 sellers’ share of revenue:** 13%  
 
 **Insight:** Revenue grew, but late delivery tracks with worse scores, almost nobody buys twice, and a small set of sellers drives a large share of revenue.
 
@@ -64,19 +64,19 @@ Built relationships and a date column, wrote DAX KPIs, and designed three pages 
 
 These measures sit on the cleaned `order_master` model in Power BI.
 
-**Total revenue** — sum of order value:
+**Total revenue**: sum of order value:
 
 ```dax
 Total Revenue = SUM('order_master'[order_value])
 ```
 
-**Total orders** — unique order count:
+**Total orders**: unique order count:
 
 ```dax
 Total Orders = DISTINCTCOUNT('order_master'[order_id])
 ```
 
-**Late delivery rate** — late orders as a share of delivered orders (`is_late` was created in Python as 0/1):
+**Late delivery rate**: late orders as a share of delivered orders (`is_late` was created in Python as 0/1):
 
 ```dax
 Late Delivery Rate =
@@ -87,7 +87,7 @@ DIVIDE(
 )
 ```
 
-**Repeat customer rate** — customers with more than one order, using `customer_unique_id`:
+**Repeat customer rate**: customers with more than one order, using `customer_unique_id`:
 
 ```dax
 Total Customers =
@@ -106,7 +106,7 @@ Repeat Customer Rate =
 DIVIDE([Repeat Customers], [Total Customers], 0)
 ```
 
-**Average delivery delay (for the review-score chart)** — used as a value on a column chart with `review_score` on the axis:
+**Average delivery delay (for the review-score chart)**: used as a value on a column chart with `review_score` on the axis:
 
 ```dax
 Avg Delivery Delay Days =
