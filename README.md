@@ -1,95 +1,124 @@
 # Olist E-Commerce Analytics
 
-**End-to-end analysis of the Olist Brazilian E-Commerce public dataset**  
-Python (pandas) · MySQL · Power BI  
-
-**Author:** Favour Onyenike  
-**Type:** Portfolio / course final project  
-**Status:** Complete  
+**End-to-end marketplace analysis** · Python · MySQL · Power BI  
+[Portfolio](https://favour-onyenike.github.io/PORTFOLIO/) · [LinkedIn](https://www.linkedin.com/in/favour-onyenike)
 
 ---
 
-## 1. Project overview
+## Problem
 
-### Business context
-Olist is a Brazilian marketplace network that connects small and medium sellers to customers. It does not hold inventory. Sales volume alone does not guarantee a strong customer experience.
+Olist connects small Brazilian sellers to buyers. Revenue can look strong while **delivery, retention, and seller balance** are weak. This project measures those gaps on ~**99,000** real orders (2016–2018, BRL).
 
-### Goal
-Apply a full analytics workflow — clean data, structure it in a database, and build an interactive dashboard — to answer business questions on **revenue**, **delivery performance**, **customer retention**, and **seller concentration**, then recommend practical next steps.
-
-### Business questions
-1. What drives revenue over time, by category, and by payment method?  
-2. Which sellers and product categories perform best?  
-3. How often are deliveries late, and does that change by state?  
-4. Is longer delivery linked to lower customer review scores?  
-5. What should the business prioritise to improve performance?  
+**Goal:** clean multi-table data, store it properly, build a dashboard, and recommend actions tied to evidence.
 
 ---
 
-## 2. Dataset
+## Business questions
 
-| Item | Detail |
-|------|--------|
-| **Source** | [Kaggle — Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) |
-| **Period** | ~2016–2018 |
-| **Currency** | Brazilian Real (BRL / R$) |
-| **Orders** | 99,441 |
-| **Order items** | 112,650 |
-| **Sellers** | 3,095 |
-| **Products** | 32,951 |
-| **States** | 27 (all Brazilian federative units) |
-| **Categories** | ~71 English names after translation |
-| **Tables** | 9 related CSV files |
-
-### Source tables
-1. `olist_orders_dataset`  
-2. `olist_order_items_dataset`  
-3. `olist_order_payments_dataset`  
-4. `olist_order_reviews_dataset`  
-5. `olist_customers_dataset`  
-6. `olist_products_dataset`  
-7. `olist_sellers_dataset`  
-8. `olist_geolocation_dataset`  
-9. `product_category_name_translation`  
-
-> Raw data is **not** stored in this repository (size + license). Download from Kaggle and place files under `data/raw/`.
+1. How did revenue move over time, by category, and by payment type?  
+2. How often are orders late, and does that vary by state?  
+3. Do longer waits link to worse review scores?  
+4. How concentrated is revenue among sellers?  
+5. What should the business prioritise next?
 
 ---
 
-## 3. Tools & why each was used
+## Pipeline
 
-| Tool | Role | Why not skip it |
-|------|------|------------------|
-| **Python (pandas)** | Cleaning, joins, feature engineering | Excel struggles with 9 tables and 100K+ rows; cleaning should be repeatable |
-| **MySQL** | Structured storage, types, validation | Enforces schema; mirrors real analytical databases |
-| **Power BI** | Interactive 3-page dashboard + DAX | Best layer for exploration and stakeholder communication |
+```text
+Kaggle CSVs (9 tables)
+    → Python (pandas) — clean, join, engineer metrics
+    → MySQL — typed tables, keys, validation
+    → Power BI — 3-page dashboard + DAX
+    → Findings & recommendations
+```
 
-**Pipeline:** Raw CSVs → Python cleaning → MySQL → Power BI dashboard → findings & recommendations
+| Tool | What I did |
+|------|------------|
+| **Python** | Dates, `is_late` (0/1), grain-safe aggregates, Portuguese→English category merge |
+| **MySQL** | Schema, import, row-count checks |
+| **Power BI** | Relationships, date model, KPIs, Overview / Delivery / Sellers pages |
 
 ---
 
-## 4. Methodology
+## Data (public Olist / Kaggle)
 
-### 4.1 Python cleaning
-- Loaded all 9 CSV files  
-- Converted order/shipping timestamps to datetime  
-- **Merged category translation** (Portuguese → English) with a left join on `product_category_name`  
-- Aggregated items and payments at the correct grain to avoid double-counting revenue  
-- Engineered `delivery_days`, `delivery_delay_days`, and `is_late` (0/1)  
-- Exported SQL-ready tables: `order_master`, `item_level`, `customers_clean`, `products_clean`, `sellers_clean`  
+| Metric | Value |
+|--------|------:|
+| Orders | 99,441 |
+| Order items | 112,650 |
+| Sellers | 3,095 |
+| Products | 32,951 |
+| States | 27 |
+| Categories (after translation) | ~71 |
+| Currency | BRL (R$) |
 
-### 4.2 MySQL
-- Created typed tables and primary keys  
-- Imported cleaned CSVs  
-- Validated row counts and simple distributions (e.g. `is_late`) before BI  
+**Source:** [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)  
+Raw files are not in this repo (size + license). Place them in `data/raw/` to reproduce.
 
-### 4.3 Power BI
-- Built relationships between cleaned tables  
-- Created a date dimension / date column for monthly trends  
-- Wrote DAX measures (examples below)  
-- Designed three report pages with slicers and page navigation  
+**Cleaning highlights**
+- Merged `product_category_name_translation` (left join) so categories are English in the model  
+- Built `delivery_days`, `delivery_delay_days`, `is_late`  
+- Aggregated payments/items at order grain so revenue is not double-counted  
+- Used `customer_unique_id` for retention (Olist issues a new `customer_id` per order)
 
-### Example measures
+---
+
+## Dashboard
+
+Three pages, slicers, page navigation.
+
+### Overview
+KPIs (revenue, orders, late rate, repeat rate) · revenue trend · payment mix · top categories
+
+![Overview page](dashboard/01_overview.png)
+
+### Delivery
+Late rate by state · average delay by review score (1 = worst, 5 = best)
+
+![Delivery page](dashboard/02_delivery.png)
+
+**Key visual:** delay by review score  
+![Delay by review score](dashboard/03_delay_by_review.png)
+
+### Sellers
+Top sellers · concentration · geography
+
+![Sellers page](dashboard/04_sellers.png)
+
+### Model (optional)
+Tables and relationships
+
+![Power BI model](dashboard/05_model.png)
+
+---
+
+## Results (from the live build)
+
+| Finding | Number |
+|---------|--------|
+| Total revenue | ~R$13.6M |
+| Late delivery rate | ~6.8% |
+| Repeat customer rate | ~3.1% |
+| Wait at review score 1 vs 5 | ~17 days vs ~10 days |
+| Top seller vs average seller revenue | ~R$459K vs ~R$8.8K |
+| Top 10 sellers’ share of revenue | ~13% |
+
+**Takeaway:** volume grew, but **late delivery tracks with worse scores**, **few customers return**, and **revenue is uneven across sellers**.
+
+---
+
+## Recommendations
+
+1. **Scorecard by state and seller** — late rate, reviews, and revenue in one view  
+2. **Flag at-risk orders** before the estimated delivery date  
+3. **Study top sellers’ fulfilment** and share practices with the long tail  
+4. **Pilot retention** for one-time buyers (especially high-review customers)
+
+---
+
+## Example DAX
+
 ```dax
 Total Revenue = SUM('order_master'[order_value])
 
@@ -99,101 +128,31 @@ DIVIDE(
     CALCULATE(COUNTROWS('order_master'), 'order_master'[order_status] = "delivered"),
     0
 )
-
-Repeat Customer Rate =
-DIVIDE(
-    [Repeat Customers Count],
-    DISTINCTCOUNT('order_master'[customer_unique_id]),
-    0
-)
 ```
-*Note: Repeat rate uses `customer_unique_id` because Olist assigns a new `customer_id` per order.*
 
 ---
 
-## 5. Dashboard structure
-
-| Page | Audience need | Main content |
-|------|----------------|--------------|
-| **Overview** | Leadership summary | KPIs, revenue trend, payment mix, top categories |
-| **Delivery** | Operations & experience | Late rate, delay by review score, late rate by state |
-| **Sellers** | Marketplace health | Active sellers, top sellers, concentration, geography |
-
----
-
-## 6. Key findings
-
-| Finding | Evidence (live build) |
-|---------|------------------------|
-| Revenue grew over the period | ~R$13.59M total; peak around mid-2018 |
-| Late delivery hurts ratings | Score 1 ≈ 17 days wait; Score 5 ≈ 10 days |
-| Delivery quality varies by state | Late rates differ across 27 states |
-| Weak retention | ~3.1% of customers place a second order |
-| Seller performance is uneven | Top seller ~R$459K vs avg ~R$8.8K; top 10 ≈ 13% of revenue |
-
----
-
-## 7. Recommendations
-
-1. **Track delivery by seller and state** — one scorecard for late rate, reviews, and revenue.  
-2. **Act before orders go late** — flag at-risk orders using estimated delivery dates.  
-3. **Learn from top sellers** — compare fulfilment practices of high performers vs the rest.  
-4. **Improve retention** — pilot offers for one-time buyers (especially 4–5 star customers).  
-
-Recommendations are framed for historical 2016–2018 patterns, not as live operational orders for Olist today.
-
----
-
-## 8. Repository structure
+## Repo layout
 
 ```text
 olist-ecommerce-analytics/
-├── README.md                 # This file
+├── README.md
+├── dashboard/          # screenshots (see list below)
+├── notebooks/          # cleaning notebook
+├── sql/                # optional schema scripts
 ├── docs/
-│   └── PROJECT_SUMMARY.md    # Short business summary
-├── notebooks/               # Add your cleaning notebook here
-├── sql/                     # Optional schema / check scripts
-├── dashboard/               # Screenshots of Power BI pages
-│   ├── overview.png
-│   ├── delivery.png
-│   └── sellers.png
-└── data/
-    ├── raw/                  # Place Kaggle CSVs here (gitignored)
-    └── processed/            # Clean exports (gitignored if large)
+└── data/raw/           # Kaggle CSVs (gitignored)
 ```
 
 ---
 
-## 9. How to reproduce
+## Skills shown
 
-1. Download the dataset from Kaggle and put CSVs in `data/raw/`.  
-2. Run the Python cleaning notebook (export processed CSVs).  
-3. Load processed tables into MySQL.  
-4. Connect Power BI to MySQL (or to the processed CSVs).  
-5. Recreate measures and the three report pages.  
-
----
-
-## 10. Skills demonstrated
-
-- Multi-table data cleaning and feature engineering (Python)  
-- Relational modeling and validation (MySQL)  
-- KPI design and DAX (Power BI)  
-- Translating analysis into business recommendations  
-- Documentation suitable for portfolio and stakeholder review  
-
----
-
-## 11. License & attribution
-
-- **Dataset:** Olist Brazilian E-Commerce Public Dataset (Kaggle) — follow Kaggle/Olist terms of use.  
-- **This analysis code/docs:** Available for portfolio review; attribute if you reuse the structure.  
+Multi-table cleaning · Feature engineering · SQL modelling · DAX / KPIs · Dashboard design · Business recommendations
 
 ---
 
 ## Contact
 
-**Favour Onyenike**  
-[Portfolio website](https://favour-onyenike.github.io/PORTFOLIO/) · [GitHub](https://github.com/Favour-Onyenike) · [LinkedIn](https://www.linkedin.com/in/favour-onyenike) · [Email](mailto:onyenikefavour8@gmail.com)  
-
-Part of my [Data Analytics Portfolio](https://github.com/Favour-Onyenike/data-analytics-portfolio).
+**Favour Onyenike** · First-class B.Sc. Computer Science, Baze University  
+[Website](https://favour-onyenike.github.io/PORTFOLIO/) · [GitHub](https://github.com/Favour-Onyenike) · [LinkedIn](https://www.linkedin.com/in/favour-onyenike) · [Email](mailto:onyenikefavour8@gmail.com)

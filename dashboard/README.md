@@ -1,12 +1,25 @@
-# Dashboard screenshots
+# Dashboard screenshots — exact filenames
 
-Add Power BI screenshots here for the GitHub README:
+Upload these files into this folder with **exact** names (PNG preferred).
 
-| File | Content |
-|------|--------|
-| `overview.png` | KPI cards + revenue trend |
-| `delivery.png` | Delay by review score (main insight) |
-| `sellers.png` | Top sellers / concentration |
-| `model.png` | Optional: relationships view |
+| Filename | What to capture |
+|----------|-----------------|
+| `01_overview.png` | Full Overview page (KPIs + main charts visible) |
+| `02_delivery.png` | Full Delivery page |
+| `03_delay_by_review.png` | Close-up of the delay-by-review-score chart only |
+| `04_sellers.png` | Full Sellers page |
+| `05_model.png` | Power BI Model view (tables + relationship lines) |
 
-After adding images, link them in the main README under **Dashboard structure**.
+### Optional (stronger portfolio)
+
+| Filename | What to capture |
+|----------|-----------------|
+| `06_python_cleaning.png` | Notebook cells: category merge or `is_late` logic |
+| `07_mysql_tables.png` | MySQL Workbench: list of clean tables or a validation query |
+
+### Capture tips
+
+- Use **landscape** screenshots  
+- Hide personal folders / browser tabs  
+- Same zoom level across Power BI pages  
+- Light theme if numbers are clearer  
