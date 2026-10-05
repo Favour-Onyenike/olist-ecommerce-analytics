@@ -194,6 +194,6 @@ olist-ecommerce-analytics/
 ## Contact
 
 **Favour Onyenike**  
-[GitHub](https://github.com/Favour-Onyenike) · [Email](mailto:onyenikefavour8@gmail.com)  
+[Portfolio website](https://favour-onyenike.github.io/PORTFOLIO/) · [GitHub](https://github.com/Favour-Onyenike) · [LinkedIn](https://www.linkedin.com/in/favour-onyenike) · [Email](mailto:onyenikefavour8@gmail.com)  
 
 Part of my [Data Analytics Portfolio](https://github.com/Favour-Onyenike/data-analytics-portfolio).
