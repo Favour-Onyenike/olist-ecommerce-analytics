@@ -58,23 +58,21 @@ Olist connects small sellers to customers and does not hold stock. Strong sales 
 
 ---
 
-## Dashboard screenshots
+## Dashboard
 
-> Upload these files into the `dashboard/` folder (exact names). Images appear here once uploaded.
-
-**Overview** — KPI row + revenue trend + payment mix  
+**Overview** — KPIs, revenue trend, payment mix  
 ![Overview](dashboard/01_overview.png)
 
-**Delivery** — full Delivery page  
+**Delivery** — late rate by state and delay patterns  
 ![Delivery](dashboard/02_delivery.png)
 
-**Delay by review score** — red→green column chart (main insight)  
-![Delay by review](dashboard/03_delay_by_review.png)
+**Main insight** — longer delays line up with worse review scores (1 = worst, 5 = best)  
+![Delay by review score](dashboard/03_delay_by_review.png)
 
-**Sellers** — top sellers / concentration  
+**Sellers** — concentration and top performers  
 ![Sellers](dashboard/04_sellers.png)
 
-**Model** — Power BI relationships view  
+**Data model** — tables and relationships in Power BI  
 ![Model](dashboard/05_model.png)
 
 ---
